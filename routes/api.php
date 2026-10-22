@@ -21,5 +21,9 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/inventory', [InventoryController::class, 'index']);
     Route::post('/inventory', [InventoryController::class, 'store']);
+    Route::get('/work-orders', [WorkOrderController::class, 'index']);
+    Route::post('/work-orders', [WorkOrderController::class, 'store']);
+    Route::post('/tickets', [WorkOrderController::class, 'store']);
     Route::post('/work-orders/{id}/complete', [WorkOrderController::class, 'complete']);
+    Route::get('/technician/stats', [WorkOrderController::class, 'stats']);
 });
